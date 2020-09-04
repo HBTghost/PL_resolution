@@ -1,32 +1,24 @@
-8
--A OR B OR E
--A OR B OR F
-B OR D
--A OR -B OR -D
-E
-F
--B OR -E
--A OR -E
-11
--A OR D OR -E
-B OR E
--B OR -D
--A OR -D
-B OR F
+7
+-A OR C
+A OR -B
+-B OR C
+A OR -C
+-B OR -C
+-A OR -C
 -A OR -B
--E
--A OR -E OR F
-D OR -E
--B
--A
-9
--A OR D
--D
--A OR -D OR F
--E OR F
--A OR -D OR E
+8
+C
+A OR B
 -A OR B
--A OR E
--A OR F
+A
+-C
+-A
+A OR -B OR C
+-B
+5
+A OR B OR -C
+-A OR B OR -C
+A OR B OR C
+B OR -C
 {}
 YES

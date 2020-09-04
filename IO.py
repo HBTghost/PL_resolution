@@ -1,5 +1,5 @@
 from base.algorithms import *
-from base.KB import *
+from base.knowledge import *
 
 def extract(line):
     res = []
@@ -8,7 +8,23 @@ def extract(line):
             res.append(s)
     return res
 
-def input_file(filename, re_KB):
+def to_string(output):
+    res = ''
+    for x in output:
+        if type(x) is not str:
+            res += str(len(x)) + '\n'
+            for y in x:
+                if type(y) is not str:
+                    for z in y:
+                        res += z + ' OR '
+                    res = res[:-4] + '\n'
+                else:
+                    res += y + '\n'
+        else:
+            res += x
+    return res
+
+def input_file(filename, knowledge):
     num_alpha, alpha = 0, []
     num_kb, KB = 0, []
     try:
@@ -18,7 +34,7 @@ def input_file(filename, re_KB):
             num_kb = int(lines[1 + num_alpha])
             alpha = [extract(lines[1 + i]) for i in range(num_alpha)]
             KB = [extract(lines[1 + num_alpha + 1 + i]) for i in range(num_kb)]
-        re_KB.setKB(alpha, KB)
+        knowledge.setKnowledge(KB, alpha)
         fi.close()
     except:
         pass
@@ -26,7 +42,7 @@ def input_file(filename, re_KB):
 def output_file(filename, output):
     try:
         with open(filename, mode='w') as fo:
-            fo.write(output)
+            fo.write(to_string(output))
         fo.close()
     except:
         pass
